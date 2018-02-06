@@ -9,15 +9,21 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:layout_centerHorizontal="true"
+        android:textColor="@color/black"
+        android:textSize="18sp"
         android:text="开启"/>
 
-    <ImageView
-        android:layout_marginTop="40dp"
+    <Button
+        android:id="@+id/btn_shuoming"
         android:layout_below="@+id/tv_open"
+        android:layout_centerHorizontal="true"
+        android:paddingLeft="40dp"
+        android:paddingRight="40dp"
+        android:layout_marginTop="20dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/bg_jj"
-        android:scaleType="fitXY"
-        android:adjustViewBounds="true"/>
+        android:textColor="@color/white"
+        android:background="@drawable/shixiantianchongfen"
+        android:text="使用说明"/>
 
 </RelativeLayout>

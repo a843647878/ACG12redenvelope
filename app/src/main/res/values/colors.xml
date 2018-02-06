@@ -5,4 +5,10 @@
     <color name="colorAccent">#FF4081</color>
 
     <color name="acg_fen2">#FF4590</color>
+
+    <color name="yimahong">#F44336</color>
+
+    <color name="black">#000000</color>
+
+    <color name="white">#FEFEFE</color>
 </resources>

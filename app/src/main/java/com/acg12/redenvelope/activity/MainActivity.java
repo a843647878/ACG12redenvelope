@@ -14,6 +14,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.view.accessibility.AccessibilityManager;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -48,6 +49,7 @@ public class MainActivity extends BaseActivity implements AccessibilityManager.A
     private AccessibilityManager accessibilityManager;
 
     private TextView openTextView;
+    private Button btn_shuoming;
 
     private boolean isRunning;
     // 动态注册锁屏等广播
@@ -133,6 +135,7 @@ public class MainActivity extends BaseActivity implements AccessibilityManager.A
                 (AccessibilityManager) getSystemService(Context.ACCESSIBILITY_SERVICE);
         accessibilityManager.addAccessibilityStateChangeListener(this);
         openTextView = (TextView) activity.findViewById(R.id.tv_open);
+        btn_shuoming = (Button) activity.findViewById(R.id.btn_shuoming);
         openTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -144,7 +147,12 @@ public class MainActivity extends BaseActivity implements AccessibilityManager.A
                 }
             }
         });
-
+        btn_shuoming.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                InstructionsActivity.launch(context);
+            }
+        });
         updateServiceStatus();
     }
 
@@ -161,11 +169,11 @@ public class MainActivity extends BaseActivity implements AccessibilityManager.A
         }
 
         if (serviceEnabled) {
-            openTextView.setText("关闭插件");
+            openTextView.setText("开启成功");
             // Prevent screen from dimming
             getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         } else {
-            openTextView.setText("开启插件");
+            openTextView.setText("点我开启");
             getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         }
 //        Toast.makeText(this, "版本号：" + getVersionName(), Toast.LENGTH_SHORT).show();
